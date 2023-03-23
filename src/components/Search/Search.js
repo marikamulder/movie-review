@@ -19,7 +19,7 @@ const Search = () => {
     e.preventDefault();
     // Call the API with axios
     axios
-      .get(`http://www.omdbapi.com/?s=${term}&apikey=e792af79`)
+      .get(`https://www.omdbapi.com/?s=${term}&apikey=e792af79`)
       .then((response) => {
         // Check if there are any results
         if (response.data.Response === "True") {
