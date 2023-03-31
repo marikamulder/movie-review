@@ -1,8 +1,10 @@
 import './Header.css';
 import logo from '../Logo/fox-reel-logo.png';
+import MainMenu from '../MainMenu/MainMenu';
 
 function Header() {
     return (
+        <>
         <header className="header">
             <div>
                 <a href="/">
@@ -11,6 +13,8 @@ function Header() {
             </div>
             <div>Movie Mystique</div>
         </header>
+        <MainMenu />
+        </>
     );
 }
 

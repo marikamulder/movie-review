@@ -48,10 +48,12 @@ const Search = () => {
       <div className="results">
         {results ? results.map((result) => (
           <div className="result" key={result.imdbID}>
-            <img src={result.Poster} alt={result.Title} />
-            <div className="basicDetails">
-              <h3>{result.Title}</h3>
-              <p>{result.Year}</p>
+            <div>
+              <img src={result.Poster} alt={result.Title} className="posterImg"/>
+              <div className="basicDetails">
+                <h3>{result.Title}</h3>
+                <p>{result.Year}</p>
+              </div>
             </div>
             <a className="detailsButton" href="#">More details</a>
           </div>
