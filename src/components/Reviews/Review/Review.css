@@ -1,0 +1,19 @@
+.reviewBox {
+    border: 2px solid rgb(95, 95, 94);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    align-items: start;
+    font-size: 17px;
+}
+
+.reviewBox h3 {
+    font-size: 22px;
+}
+
+.ratingScore {
+    align-self: flex-end;
+}

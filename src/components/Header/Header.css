@@ -1,4 +1,4 @@
-.header {
+.headHeader {
     padding: 30px;
     background-color: #2b2f55;
     font-size: 50px;
@@ -8,7 +8,7 @@
     column-gap: 7px;
 }
 
-.header img {
+.headHeader img {
     width: 50px;
     background-color: white;
     border-radius: 30%;

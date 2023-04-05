@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './Title.css';
+import AddReview from '../AddReview/AddReview';
+import Reviews from '../Reviews/Reviews';
 
 const Title = () => {
   // State for storing the search term
   const [term, setTerm] = useState("");
+
+  const [reviews, setReviews] = useState([]);
+
+  const [totalReviews, setTotalReviews] = useState(0);
 
   // State for storing the search results
   let [results, setResults] = useState([]);
@@ -36,10 +42,31 @@ const Title = () => {
         // Handle errors
         console.log(error);
       });
+      setReviews([]);
   };
 
   if (!Array.isArray(results)) {
     results = [results];
+  }
+
+  const handleAddReview = (review, rating) => {
+    setReviews([
+    ...reviews,
+      {
+        id: results.imdbID,
+        review: review,
+        rating: rating
+      }
+    ]);
+    const data = { id: results.imdbID, review: review, rating: rating };
+    /*set(pushRef, data)
+      .then(() => {
+        console.log('Review successfully added:', results.imdbID);
+      })
+      .catch((error) => {
+        console.log('Error:', error);
+      });*/
+      setTotalReviews(totalReviews + 1);
   }
 
   return (
@@ -73,11 +100,13 @@ const Title = () => {
               <div className="rightTitleSearch">
                 <div className="plotTitleSearch">
                   <p>Plot: {result.Plot}</p>
+                  <p>Reviews: {totalReviews}</p>
                   <div className="reviewSection">
-                    <p>Reviews: {}</p>
+                    <Reviews
+                      reviews={reviews}/>
                   </div>
                 </div>
-                  <button className="reviewButton">Place a review</button>
+                  <AddReview onAddReview={handleAddReview}/>
               </div>
             </div>
           </div>

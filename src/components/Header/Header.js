@@ -5,7 +5,7 @@ import MainMenu from '../MainMenu/MainMenu';
 function Header() {
     return (
         <>
-        <header className="header">
+        <header className="headHeader">
             <div>
                 <a href="/">
                     <img src={logo} alt="fox reel" />

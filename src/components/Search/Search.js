@@ -1,13 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import './Search.css';
+import AddReview from '../AddReview/AddReview';
+import Reviews from '../Reviews/Reviews';
 
 const Search = () => {
   // State for storing the search term
   const [term, setTerm] = useState("");
+  const [movieId, setMovieId] = useState("");
+
+  const [reviews, setReviews] = useState([]);
+
+  const [totalReviews, setTotalReviews] = useState(0);
+
+  const isFirstRender = useRef(true);
+
+  let [showDetails, setShowDetails] = useState(false);
 
   // State for storing the search results
-  const [results, setResults] = useState([]);
+  let [results, setResults] = useState([]);
 
   // Function for handling input change
   const handleChange = (e) => {
@@ -16,6 +27,7 @@ const Search = () => {
 
   // Function for handling form submit
   const handleSubmit = (e) => {
+    setShowDetails(false);
     e.preventDefault();
     // Call the API with axios
     axios
@@ -36,7 +48,67 @@ const Search = () => {
         // Handle errors
         console.log(error);
       });
+      setReviews([]);
   };
+
+  // Function for getting the id for more details
+  const handleId = (keyId) => {
+    setMovieId(keyId);
+  };
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return; // return early if initial render
+    }
+
+    // Call the API with axios
+    if (movieId != '') {
+      axios
+      .get("https://www.omdbapi.com/?i=" + movieId + "&apikey=e792af79")
+      .then((response) => {
+        // Check if there are any results
+        if (response.data.Response === "True") {
+          // Update the state with the results
+          setResults(response.data);
+          console.log(response.data.Search);
+          console.log(response.data);
+        } else {
+          // Handle errors
+          alert(response.data.Error);
+        }
+      })
+      .catch((error) => {
+        // Handle errors
+        console.log(error);
+      });
+      setShowDetails(true);
+    }
+  }, [movieId]);
+
+  if (!Array.isArray(results)) {
+    results = [results];
+  }
+
+  const handleAddReview = (review, rating) => {
+    setReviews([
+    ...reviews,
+      {
+        id: movieId,
+        review: review,
+        rating: rating
+      }
+    ]);
+    const data = { id: movieId, review: review, rating: rating };
+    /*set(pushRef, data)
+      .then(() => {
+        console.log('Review successfully added:', movieId);
+      })
+      .catch((error) => {
+        console.log('Error:', error);
+      });*/
+      setTotalReviews(totalReviews + 1);
+  }
 
   return (
     <div className="search">
@@ -46,7 +118,42 @@ const Search = () => {
         <button type="submit">Search</button>
       </form>
       <div className="results">
-        {results ? results.map((result) => (
+        {showDetails ? results.map((result) => (
+          <div className="resultTitleSearch" key={result.imdbID}>
+            <div className="fullDetailsTitleSearch">
+              <div>
+                <img src={result.Poster} alt={result.Title} />
+                <div className="basicDetailsTitleSearch">
+                  <h3>Title: {result.Title}</h3>
+                </div>
+                <div className="basicDetailsTitleSearch">
+                  <p>Genre: {result.Genre}</p>
+                  <p>Length: {result.Runtime}</p>
+                </div>
+                <div className="basicDetailsTitleSearch">
+                  <p>Released: {result.Year}</p>
+                  <p>Rating: {result.imdbRating}/10</p>
+                </div>
+                <div className="basicDetailsTitleSearch">
+                  <p>Actors: {result.Actors}</p>
+                </div>
+              </div>
+              <div className="rightTitleSearch">
+                <div className="plotTitleSearch">
+                  <p>Plot: {result.Plot}</p>
+                  <p>Reviews: {totalReviews}</p>
+                  <div className="reviewSection">
+                    <Reviews
+                      reviews={reviews}/>
+                  </div>
+                </div>
+                  <AddReview onAddReview={handleAddReview}/>
+              </div>
+            </div>
+          </div>
+        ))
+        : null }
+        {!showDetails ?  results.map((result) => (
           <div className="result" key={result.imdbID}>
             <div>
               <img src={result.Poster} alt={result.Title} className="posterImg"/>
@@ -55,9 +162,9 @@ const Search = () => {
                 <p>{result.Year}</p>
               </div>
             </div>
-            <a className="detailsButton" href="#">More details</a>
+            <button className="detailsButton" onClick={() => handleId(result.imdbID)}>More details</button>
           </div>
-        )): <p>Unfortunately, no results were found with your search.  Change the search parameters & try again...</p> }
+        )): null }
       </div>
     </div>
   );

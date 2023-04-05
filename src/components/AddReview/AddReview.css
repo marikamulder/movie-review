@@ -1,0 +1,117 @@
+.modal {
+    height: auto;
+    background-color: #576ea1 !important;
+    margin: -270px 0px 0px 0px !important;
+    padding: 0px !important;
+    border: 1px solid #cfcece;
+  }
+  .modal, .header {
+    background-color: #2b2f55;
+    border-radius: 25px 25px 0px 0px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+  }
+  .modal, .content {
+    text-align: left;
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .modal, .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+    font-size: 14px;
+  }
+  .modal, .close {
+    position: absolute;
+    display: block;
+    padding: 5px 10px 10px;
+    line-height: 20px;
+    font-size: 24px;
+    right: -15px;
+    top: -15px;
+    background: #ffffff;
+    border-radius: 25px;
+    overflow: visible;
+  }
+  .closeButton {
+    cursor: pointer;
+    display: block;
+    width: 200px;
+    background: #27ae60;
+    text-align: center;
+    margin: 0px auto 15px;
+    height: 40px;
+    border-radius: 25px;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 30px;
+    letter-spacing: .15em;
+    text-decoration: none;
+    font-size: .9em;
+    font-weight: 300;
+    background: linear-gradient(90deg, #e67e22, #e74c3c);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.18);
+    transition: 0.3s;
+  }
+
+.formReview {
+    padding: 0px;
+    width: 355px;
+}
+
+.formBox {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.descriptInput {
+    width: auto;
+    background-color : #ffffff; 
+    margin-bottom: 10px;
+}
+
+.formBottomBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.formBottomBox button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 85px;
+    border-radius: 10px;
+}
+
+.selectInput {
+    flex: 50%;
+}
+
+.selectInput select {
+    background-color : #ffffff; 
+    width: 100px;
+    padding: 3px;
+    margin-left: 7px;
+}
+
+@media screen and (max-width: 750px) {
+    .formReview {
+        padding: 0px;
+        width: auto;
+    }
+
+    .formBottomBox {
+        flex-direction: column;
+        row-gap: 10px;
+    }
+}
