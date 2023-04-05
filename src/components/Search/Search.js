@@ -63,7 +63,7 @@ const Search = () => {
     }
 
     // Call the API with axios
-    if (movieId != '') {
+    if (movieId !== '') {
       axios
       .get("https://www.omdbapi.com/?i=" + movieId + "&apikey=e792af79")
       .then((response) => {
@@ -99,7 +99,7 @@ const Search = () => {
         rating: rating
       }
     ]);
-    const data = { id: movieId, review: review, rating: rating };
+    /*const data = { id: movieId, review: review, rating: rating };
     /*set(pushRef, data)
       .then(() => {
         console.log('Review successfully added:', movieId);

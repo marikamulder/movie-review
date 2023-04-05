@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import './Title.css';
 import AddReview from '../AddReview/AddReview';
@@ -58,7 +58,7 @@ const Title = () => {
         rating: rating
       }
     ]);
-    const data = { id: results.imdbID, review: review, rating: rating };
+    /*const data = { id: results.imdbID, review: review, rating: rating };
     /*set(pushRef, data)
       .then(() => {
         console.log('Review successfully added:', results.imdbID);

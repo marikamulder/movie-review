@@ -75,6 +75,14 @@
     display: flex;
     flex-direction: column;
     height: 400px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     align-items: center;
+}
+.reviewSection::-webkit-scrollbar { 
+    width: 5px;
+}
+.reviewSection::-webkit-scrollbar-thumb { 
+    background: #888;
+    border-radius: 10px;
 }

@@ -72,14 +72,6 @@
     margin-bottom: 5px;
 }
 
-.reviewSection {
-    display: flex;
-    flex-direction: column;
-    height: 400px;
-    overflow: scroll;
-    align-items: center;
-}
-
 .reviewButton {
     display: block;
     width: 200px;
