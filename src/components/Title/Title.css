@@ -108,3 +108,15 @@
         margin-right: 15px;
     }
 }
+
+@media screen and (max-width: 450px) {
+
+    .resultsTitleSearch{
+        margin-left: 35px;
+        margin-right: 35px;
+    }
+
+    img {
+        width: 75%;
+    }
+}

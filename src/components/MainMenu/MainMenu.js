@@ -16,7 +16,7 @@ function MainMenu() {
         </Nav.Item>
         <Nav.Item>
             <Nav.Link eventKey="/explore">
-            <NavDropdown title="Explore" eventKey="/explore" id="nav-dropdown">
+            <NavDropdown title="Explore" eventkey="/explore" id="nav-dropdown">
                 <NavDropdown.Item>
                     <Nav.Link eventKey="/Generic">
                         <NavLink to="/explore" className="navDropButton" style={({ isActive }) => ({ 
