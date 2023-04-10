@@ -20,7 +20,7 @@ function AddReview({ onAddReview }) {
             
             setReview('')
             setRating('1');
-            setErrorMessage('');
+            setErrorMessage('Review Added!');
         } 
     }
 
@@ -60,20 +60,20 @@ function AddReview({ onAddReview }) {
                         <option value={'5'}>5 Star</option>
                         </select>
                     </label>
-                    <button>Add</button>
+                    <button className="closeButton">Add</button>
                 </div>
             </div>
         </form>
         </div>
         <div className="actions">
-          <button
+          {/*<button
             className="closeButton"
             onClick={() => {
               close();
             }}
           >
             close modal
-          </button>
+          </button>*/}
         </div>
       </div>
     )}

@@ -71,7 +71,7 @@ const Title = () => {
 
   return (
     <div className="search">
-      <h1>Search for movies by title</h1>
+      <h1>Search for one specific movie</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" value={term} onChange={handleChange} />
         <button type="submit">Search</button>
