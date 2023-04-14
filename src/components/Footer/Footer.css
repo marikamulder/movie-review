@@ -9,6 +9,14 @@
     color: white;
 }
 
+.footFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 25px;
+}
+
 .footLink:link {
     color: orangered;
     text-decoration: none;
@@ -24,4 +32,25 @@
   
 .footLink:active {
     color: rgb(42, 126, 251);
+}
+
+.leftFoxReel img {
+    margin-left: 10px;
+    width: 50px;
+    border-radius: 30%;
+    transform: rotate(270deg) scaleX(-1);
+}
+
+.rightFoxReel img {
+    margin-right: 10px;
+    width: 50px;
+    border-radius: 30%;
+    transform: rotate(90deg);
+}
+
+@media screen and (max-width: 400px) {
+
+    .footFlex {
+        column-gap: 10px;
+    }
 }

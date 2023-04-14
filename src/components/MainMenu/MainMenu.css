@@ -1,12 +1,13 @@
 
 .mainmenu {
     background-color: #2b2f55;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .leftTab {
     margin-left: 5%;
 }
+
 .nav-tabs .nav-link {
     color: #FFFFFF !important;
     border-bottom: none !important;
@@ -16,20 +17,6 @@
 }
 
 .nav-tabs .nav-link.active {
-    background-color: #576ea1 !important;
-}
-
-#nav-dropdown{
-    color: #FFFFFF !important;
-    border-bottom: none !important;
-    border: 1px solid transparent !important;
-    margin-bottom: -2px;
-    padding: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.dropdown-toggle.show{
     background-color: #576ea1 !important;
 }
 
@@ -45,28 +32,31 @@ a.navButton:hover {
     color: white !important; 
 }
 
-div.dropdown-menu {
-    background-color: #2b2f55;
-    text-align: center !important;
+@media screen and (max-width: 520px) {
+
+    a.navButton {
+        padding: 10px 10px !important;
+    }
 }
 
-a.navDropButton {
-    padding: 10px 30px !important;
+@media screen and (max-width: 360px) {
+
+    a.navButton {
+        padding: 10px 7px !important;
+    }
+
+    .leftTab {
+        margin-left: 2%;
+    }
 }
 
-.dropdown-item a.navDropButton.active {
-    background-color: #576ea1 !important;
-    border: 1px solid transparent !important;
-    border-radius: 5px;
-    padding-left: 35px !important;
-    padding-right: 35px !important;
-}
+@media screen and (max-width: 315px) {
 
-a.dropdown-item a.nav-link {
-    border: 1px solid white !important;
-    border-radius: 5px;
-}
+    a.navButton {
+        padding: 10px 5px !important;
+    }
 
-a.navDropButton:link {
-    text-decoration: none;
+    .leftTab {
+        margin-left: 1%;
+    }
 }

@@ -1,0 +1,147 @@
+
+.reviewedResult{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 350px;
+    background: #ffffff;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+    padding: 30px 10px 0;
+    border-radius: 15px;
+    transform: translate(-0%, -0%);
+}
+
+.reviewedResult:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: red;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 15px 15px 0px 0px;
+    background: linear-gradient(130deg, #e67e22 10%, #e74c3c 100%);
+}
+
+.rankResults{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 20px;
+    margin: 30px 20px 30px 20px;
+}
+
+.rankBackground {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 20px;
+    background-color: #2b2f55;
+    padding: 15px;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.rankBackground h2 {
+    color: white;
+}
+
+.rankItems {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 20px;
+}
+
+.rankInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.podium-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    background-color: white;
+    background-image: url("../Logo/gold-leaf.png");
+    background-repeat: no-repeat;
+    background-size: 190px;
+    background-position-y: bottom;
+    background-position-x: center;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 15px;
+    transform: translate(-0%, -0%);
+    align-self: flex-end;
+    align-content: flex-end;
+}
+
+.podium-item:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background: red;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 15px 15px 0px 0px;
+    background: linear-gradient(130deg, #FFFFAC 10%, #5d4a1f 100%);
+}
+
+.podium-item .rankingCount {
+    margin-bottom: 160px;
+}
+
+.podium-item:nth-child(2) {
+    background-image: url("../Logo/silver-leaf.png");
+    background-repeat: no-repeat;
+    background-size: 140px ;
+    background-position-y: bottom;
+    background-position-x: center;
+}
+
+.podium-item:nth-child(2):before { background: linear-gradient(130deg, #d4e6f5 10%, #8693AB 100%) }
+
+.podium-item:nth-child(2) .rankingCount {
+    margin-bottom: 110px;
+}
+
+.podium-item:nth-child(3) {
+    background-image: url("../Logo/bronze-leaf.png");
+    background-repeat: no-repeat;
+    background-size: 85px;
+    background-position-y: bottom;
+    background-position-x: center;
+}
+.podium-item:nth-child(3):before { background: linear-gradient(130deg, #F2A65A 10%, #772F1A 100%); }
+
+.podium-item:nth-child(3) .rankingCount {
+    margin-bottom: 60px;
+}
+
+@media screen and (max-width: 860px) {
+
+    .podium-item:nth-child(1){
+        order: 1 !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    .podium-item{
+        width: auto;
+    }
+}

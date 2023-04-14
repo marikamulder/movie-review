@@ -3,22 +3,27 @@ import axios from "axios";
 import './Search.css';
 import AddReview from '../AddReview/AddReview';
 import Reviews from '../Reviews/Reviews';
+import { ref, push, set, onValue } from 'firebase/database';
+import { database } from '../Database/FirebaseConfig.js';
 
 const Search = () => {
-  // State for storing the search term
+
+  // Firebase reference
+  const db = database;
+  const listRef = ref(db, '/reviews');
+  const pushRef = push(listRef);
+
+  // State for storing the search term, movieId, and reviews
   const [term, setTerm] = useState("");
   const [movieId, setMovieId] = useState("");
-
   const [reviews, setReviews] = useState([]);
-
-  const [totalReviews, setTotalReviews] = useState(0);
-
-  const isFirstRender = useRef(true);
-
-  let [showDetails, setShowDetails] = useState(false);
 
   // State for storing the search results
   let [results, setResults] = useState([]);
+
+  const isFirstRender = useRef(true);
+  let [showDetails, setShowDetails] = useState(false);
+
 
   // Function for handling input change
   const handleChange = (e) => {
@@ -71,7 +76,6 @@ const Search = () => {
         if (response.data.Response === "True") {
           // Update the state with the results
           setResults(response.data);
-          console.log(response.data.Search);
           console.log(response.data);
         } else {
           // Handle errors
@@ -90,25 +94,61 @@ const Search = () => {
     results = [results];
   }
 
+  // Adding a new review
   const handleAddReview = (review, rating) => {
+
+    // Add to Reviews array
     setReviews([
     ...reviews,
       {
-        id: movieId,
+        id: pushRef.key,
+        imdbID: movieId,
         review: review,
         rating: rating
       }
     ]);
-    /*const data = { id: movieId, review: review, rating: rating };
-    /*set(pushRef, data)
+
+    // Add to Reviews in firebase database
+    const data = {id: pushRef.key, imdbID: movieId, title: results[0].Title, review: review, rating: rating };
+    set(pushRef, data)
       .then(() => {
-        console.log('Review successfully added:', movieId);
+        console.log('Review successfully added:', pushRef.key);
       })
       .catch((error) => {
         console.log('Error:', error);
-      });*/
-      setTotalReviews(totalReviews + 1);
+      });
   }
+
+  // Get reviews from database
+  useEffect(() => {
+    
+    const dbRef = ref(db, '/reviews');
+    onValue(dbRef, (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+      const childKey = childSnapshot.key;
+      const childData = childSnapshot.val();
+
+      // Don't create doubles of items
+      const found = reviews.some(el => el.id === childKey);
+        if (!found) {
+          if (movieId !== "undefined") {
+            if (movieId === childData.imdbID) {
+            // Add to Reviews array
+            setReviews((reviews) => [ 
+                ...reviews,
+                {
+                  id: childData.id,
+                  imdbID: childData.imdbID,
+                  review: childData.review,
+                  rating: childData.rating
+                }
+              ]);
+            }
+          }
+        }
+      });
+      }, { onlyOnce: true });
+  }, [movieId]);
 
   return (
     <div className="search">
@@ -141,7 +181,7 @@ const Search = () => {
               <div className="rightTitleSearch">
                 <div className="plotTitleSearch">
                   <p>Plot: {result.Plot}</p>
-                  <p>Reviews: {totalReviews}</p>
+                  <p>Reviews: {reviews.length}</p>
                   <div className="reviewSection">
                     <Reviews
                       reviews={reviews}/>

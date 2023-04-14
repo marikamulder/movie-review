@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import './MainMenu.css';
-import { Nav, NavDropdown } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -16,30 +16,19 @@ function MainMenu() {
         </Nav.Item>
         <Nav.Item>
             <Nav.Link eventKey="/explore">
-            <NavDropdown title="Explore" eventkey="/explore" id="nav-dropdown">
-                <NavDropdown.Item>
-                    <Nav.Link eventKey="/Generic">
-                        <NavLink to="/explore" className="navDropButton" style={({ isActive }) => ({ 
-                                        color: isActive ? 'white' : 'orange' })}>Generic</NavLink></Nav.Link>
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item>
-                    <Nav.Link eventKey="/Specific">
-                        <NavLink to="/title" className="navDropButton" style={({ isActive }) => ({ 
-                                        color: isActive ? 'white' : 'orange' })}>Specific</NavLink></Nav.Link>
-                </NavDropdown.Item>
-            </NavDropdown></Nav.Link>
-        </Nav.Item>
-        {/*<Nav.Item>
-            <Nav.Link eventKey="/explore">
                 <NavLink to="/explore" className="navButton" style={({ isActive }) => ({ 
                                 color: isActive ? 'white' : 'orange' })}>Explore</NavLink></Nav.Link>
         </Nav.Item>
         <Nav.Item>
-            <Nav.Link eventKey="/title">
+            <Nav.Link eventKey="/Specific">
                 <NavLink to="/title" className="navButton" style={({ isActive }) => ({ 
-                                color: isActive ? 'white' : 'orange' })}>Title</NavLink></Nav.Link>
-        </Nav.Item>*/}
+                                color: isActive ? 'white' : 'orange' })}>Specific</NavLink></Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+            <Nav.Link eventKey="/ranking">
+                <NavLink to="/ranking" className="navButton" style={({ isActive }) => ({ 
+                                color: isActive ? 'white' : 'orange' })}>Ranking</NavLink></Nav.Link>
+        </Nav.Item>
         </Nav>
     </div>
     

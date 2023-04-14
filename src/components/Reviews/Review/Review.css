@@ -10,8 +10,9 @@
     font-size: 17px;
 }
 
-.reviewBox h3 {
-    font-size: 22px;
+.reviewBox h4 {
+    font-size: 14px;
+    margin-bottom: 0px;
 }
 
 .ratingScore {

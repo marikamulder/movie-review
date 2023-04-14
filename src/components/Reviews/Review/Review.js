@@ -4,7 +4,7 @@ function Review(props) {
 
     return (
         <div className='reviewBox'>
-            <h3>{props.review.review}</h3>
+            <h4>{props.review.review}</h4>
             <div className='ratingScore'>
                 Rating: {props.review.rating}/5
             </div>

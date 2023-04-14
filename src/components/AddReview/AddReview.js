@@ -5,6 +5,7 @@ import 'reactjs-popup/dist/index.css';
 
 function AddReview({ onAddReview }) {
     
+    // State for storing the review, rating, and errorMessage
     const [review, setReview] = useState('');
     const [rating, setRating] = useState('1');
     const [errorMessage, setErrorMessage] = useState('');
@@ -12,6 +13,7 @@ function AddReview({ onAddReview }) {
     const handleFormSubmission = (event) => {
         event.preventDefault();
 
+        // Check if input is empty
         if (review === '') {
             setErrorMessage('Enter a review.');
         }
@@ -66,14 +68,6 @@ function AddReview({ onAddReview }) {
         </form>
         </div>
         <div className="actions">
-          {/*<button
-            className="closeButton"
-            onClick={() => {
-              close();
-            }}
-          >
-            close modal
-          </button>*/}
         </div>
       </div>
     )}

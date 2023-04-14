@@ -14,3 +14,17 @@
     border-radius: 30%;
     padding: 7px;
 }
+
+@media screen and (max-width: 520px) {
+
+    .headHeader {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+
+    .headHeader {
+        font-size: 35px;
+    }
+}
