@@ -1,7 +1,7 @@
 import Review from './Review/Review';
 import './Reviews.css';
 
-function Reviews({ reviews }) {  
+function Reviews({ reviews }) {
     
     return (
         <div className='listedReviews'>

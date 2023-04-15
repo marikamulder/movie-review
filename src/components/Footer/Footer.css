@@ -12,9 +12,9 @@
 .footFlex {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    column-gap: 25px;
+    column-gap: 10px;
 }
 
 .footLink:link {
@@ -34,23 +34,159 @@
     color: rgb(42, 126, 251);
 }
 
-.leftFoxReel img {
+.leftFoxReel {
     margin-left: 10px;
-    width: 50px;
-    border-radius: 30%;
-    transform: rotate(270deg) scaleX(-1);
+    width: 100px;
+    height: 50px;
+    transform: scaleX(-1);
+    background-image: url("../Logo/fox8.png");
+    background-repeat: no-repeat;
+    background-size: 85px;
 }
 
-.rightFoxReel img {
+.rightFoxReel {
     margin-right: 10px;
-    width: 50px;
-    border-radius: 30%;
-    transform: rotate(90deg);
+    width: 100px;
+    height: 50px;
+    background-image: url("../Logo/fox8.png");
+    background-repeat: no-repeat;
+    background-size: 85px;
 }
+
+.leftReel {
+    margin-left: 10px;
+    width: 100px;
+    height: 50px;
+    transform: scaleX(-1) rotate(180deg);
+    background-image: url("../Logo/film-reel.png");
+    background-repeat: no-repeat;
+    background-size: 55px;
+}
+
+.rightReel {
+    margin-right: 10px;
+    width: 100px;
+    height: 50px;
+    transform: rotate(180deg);
+    background-image: url("../Logo/film-reel.png");
+    background-repeat: no-repeat;
+    background-size: 55px;
+}
+
 
 @media screen and (max-width: 400px) {
 
     .footFlex {
         column-gap: 10px;
+    }
+
+    .footer {
+        font-size: 14px;
+    }
+}
+
+
+@media screen and (max-width: 680px) {
+
+    .rightReel {
+        display: none;
+    }
+    .leftReel {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    .footFlex {
+        column-gap: 5px;
+    }
+
+    .rightFoxReel {
+        background-image: url("../Logo/fox1.png");
+        width: 90px;
+    }
+
+    .leftFoxReel {
+        background-image: url("../Logo/fox1.png");
+        width: 90px;
+    }
+}
+
+@media screen and (max-width: 515px) and (min-width: 360px) {
+
+    .rightFoxReel {
+        background-image: url("../Logo/fox2.png");
+        width: 90px;
+    }
+
+    .leftFoxReel {
+        background-image: url("../Logo/fox2.png");
+        width: 90px;
+    }
+}
+
+@media screen and (max-width: 670px) and (min-width: 515px) {
+
+    .rightFoxReel {
+        background-image: url("../Logo/fox3.png");
+        width: 90px;
+    }
+
+    .leftFoxReel {
+        background-image: url("../Logo/fox3.png");
+        width: 90px;
+    }
+}
+
+@media screen and (max-width: 825px) and (min-width: 670px) {
+
+    .rightFoxReel {
+        background-image: url("../Logo/fox4.png");
+        width: 90px;
+    }
+
+    .leftFoxReel {
+        background-image: url("../Logo/fox4.png");
+        width: 90px;
+    }
+}
+
+@media screen and (max-width: 980px) and (min-width: 825px) {
+
+    .rightFoxReel {
+        background-image: url("../Logo/fox5.png");
+        width: 90px;
+    }
+
+    .leftFoxReel {
+        background-image: url("../Logo/fox5.png");
+        width: 90px;
+    }
+}
+
+@media screen and (max-width: 1135px) and (min-width: 980px) {
+
+    .rightFoxReel {
+        background-image: url("../Logo/fox6.png");
+        width: 90px;
+    }
+
+    .leftFoxReel {
+        background-image: url("../Logo/fox6.png");
+        width: 90px;
+    }
+}
+
+@media screen and (max-width: 1290px) and (min-width: 1135px) {
+
+    .rightFoxReel {
+        background-image: url("../Logo/fox7.png");
+        width: 90px;
+    }
+
+    .leftFoxReel {
+        background-image: url("../Logo/fox7.png");
+        width: 90px;
     }
 }

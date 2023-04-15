@@ -7,7 +7,7 @@ function Header() {
         <>
         <header className="headHeader">
             <div>
-                <a href="/">
+                <a>
                     <img src={logo} alt="fox reel" />
                 </a>
             </div>
